@@ -24,7 +24,7 @@ The goal of chanan.utils is to encapsulate many utility functions that I use oft
 
 You can install the development version of chanan.utils like so:
 
-``` {r install}
+``` {r install, echo = T, results = 'hide', message = F, warning = F}
 
 devtools::install_github("syrchanan/chanan.utils")
 
@@ -34,7 +34,7 @@ devtools::install_github("syrchanan/chanan.utils")
 
 This is a basic example which shows you how to use any of the `media_` utility function.
 
-Call a function with the "media_" prefix, then leave the target metric as an NA value, and fill in all the others.
+Call a function with the `media_` prefix, then leave the target metric as an NA value, and fill in all the others.
 
 Below is an example calculation of AA rating from UE and AA.
 
