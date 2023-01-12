@@ -20,6 +20,11 @@
 #'
 #' @export
 media_ue <- function(impressions = NA, rating = NA, ue = NA) {
+
+  if (sum(is.na(c(impressions, rating, ue))) != 1) {
+    stop("Leave only one parameter equal to NA.")
+  }
+
   if (is.na(impressions)) {
     result <- ue * rating
   } else if (is.na(rating)) {
@@ -47,6 +52,11 @@ media_ue <- function(impressions = NA, rating = NA, ue = NA) {
 #'
 #' @export
 media_coverage <- function(cvg_projection = NA, cvg_ue = NA, cvg_rating = NA) {
+
+  if (sum(is.na(c(cvg_projection, cvg_ue, cvg_rating))) != 1) {
+    stop("Leave only one parameter equal to NA.")
+  }
+
   if (is.na(cvg_projection)) {
     result <- cvg_ue * cvg_rating
   } else if (is.na(cvg_ue)) {
@@ -81,6 +91,11 @@ media_coverage <- function(cvg_projection = NA, cvg_ue = NA, cvg_rating = NA) {
 #'
 #' @export
 media_hut_1 <- function(hh_rating = NA, share = NA, hut = NA) {
+
+  if (sum(is.na(c(hh_rating, share, hut))) != 1) {
+    stop("Leave only one parameter equal to NA.")
+  }
+
   if (is.na(hh_rating)) {
     result <- hut * share
   } else if (is.na(share)) {
@@ -102,6 +117,11 @@ media_hut_1 <- function(hh_rating = NA, share = NA, hut = NA) {
 #'
 #' @export
 media_hut_2 <- function(hh_in_use = NA, total_hh_ue = NA, hut = NA) {
+
+  if (sum(is.na(c(hh_in_use, total_hh_ue, hut))) != 1) {
+    stop("Leave only one parameter equal to NA.")
+  }
+
   if (is.na(hh_in_use)) {
     result <- total_hh_ue * hut
   } else if (is.na(total_hh_ue)) {
@@ -129,6 +149,11 @@ media_hut_2 <- function(hh_in_use = NA, total_hh_ue = NA, hut = NA) {
 #'
 #' @export
 media_put_1 <- function(persons_viewing = NA, total_person_ue = NA, put = NA) {
+
+  if (sum(is.na(c(persons_viewing, total_person_ue, put))) != 1) {
+    stop("Leave only one parameter equal to NA.")
+  }
+
   if (is.na(persons_viewing)) {
     result <- total_person_ue * put
   } else if (is.na(total_person_ue)) {
@@ -150,6 +175,11 @@ media_put_1 <- function(persons_viewing = NA, total_person_ue = NA, put = NA) {
 #'
 #' @export
 media_put_2 <- function(demo_rating = NA, demo_share = NA, put = NA) {
+
+  if (sum(is.na(c(demo_rating, demo_share, put))) != 1) {
+    stop("Leave only one parameter equal to NA.")
+  }
+
   if (is.na(demo_rating)) {
     result <- demo_share * put
   } else if (is.na(demo_share)) {
@@ -183,6 +213,11 @@ media_put_2 <- function(demo_rating = NA, demo_share = NA, put = NA) {
 #'
 #' @export
 media_share <- function(rating = NA, hut = NA, share = NA) {
+
+  if (sum(is.na(c(rating, hut, share))) != 1) {
+    stop("Leave only one parameter equal to NA.")
+  }
+
   if (is.na(rating)) {
     result <- hut * share
   } else if (is.na(hut)) {
@@ -219,6 +254,11 @@ media_share <- function(rating = NA, hut = NA, share = NA) {
 #'
 #' @export
 media_aa_1 <- function(rating = NA, ue = NA, aa = NA) {
+
+  if (sum(is.na(c(rating, ue, aa))) != 1) {
+    stop("Leave only one parameter equal to NA.")
+  }
+
   if (is.na(aa)) {
     result <- rating * ue
   } else if (is.na(ue)) {
@@ -240,6 +280,11 @@ media_aa_1 <- function(rating = NA, ue = NA, aa = NA) {
 #'
 #' @export
 media_aa_2 <- function(vpvh = NA, hh = NA, aa = NA) {
+
+  if (sum(is.na(c(vpvh, hh, aa))) != 1) {
+    stop("Leave only one parameter equal to NA.")
+  }
+
   if (is.na(aa)) {
     result <- vpvh * hh
   } else if (is.na(hh)) {
@@ -269,6 +314,11 @@ media_aa_2 <- function(vpvh = NA, hh = NA, aa = NA) {
 #'
 #' @export
 media_aa_rating_1 <- function(share = NA, hut = NA, aa_rating = NA) {
+
+  if (sum(is.na(c(share, hut, aa_rating))) != 1) {
+    stop("Leave only one parameter equal to NA.")
+  }
+
   if (is.na(aa_rating)) {
     result <- share * hut
   } else if (is.na(hut)) {
@@ -291,6 +341,11 @@ media_aa_rating_1 <- function(share = NA, hut = NA, aa_rating = NA) {
 #'
 #' @export
 media_aa_rating_2 <- function(aa = NA, ue = NA, aa_rating = NA) {
+
+  if (sum(is.na(c(aa, ue, aa_rating))) != 1) {
+    stop("Leave only one parameter equal to NA.")
+  }
+
   if (is.na(aa)) {
     result <- aa_rating * ue
   } else if (is.na(ue)) {
@@ -312,6 +367,11 @@ media_aa_rating_2 <- function(aa = NA, ue = NA, aa_rating = NA) {
 #'
 #' @export
 media_aa_rating_3 <- function(grps = NA, num_spots = NA, aa_rating = NA) {
+
+  if (sum(is.na(c(grps, num_spots, aa_rating))) != 1) {
+    stop("Leave only one parameter equal to NA.")
+  }
+
   if (is.na(grps)) {
     result <- aa_rating * num_spots
   } else if (is.na(num_spots)) {
@@ -340,6 +400,11 @@ media_aa_rating_3 <- function(grps = NA, num_spots = NA, aa_rating = NA) {
 #'
 #' @export
 media_gross_imp <- function(gross_imp = NA, ue = NA, grps = NA) {
+
+  if (sum(is.na(c(gross_imp, ue, grps))) != 1) {
+    stop("Leave only one parameter equal to NA.")
+  }
+
   if (is.na(gross_imp)) {
     result <- ue * grps
   } else if (is.na(ue)) {
@@ -374,6 +439,11 @@ media_gross_imp <- function(gross_imp = NA, ue = NA, grps = NA) {
 #'
 #' @export
 media_grp_1 <- function(impressions = NA, ue = NA, grps = NA) {
+
+  if (sum(is.na(c(impressions, ue, grps))) != 1) {
+    stop("Leave only one parameter equal to NA.")
+  }
+
   if (is.na(impressions)) {
     result <- ue * grps
   } else if (is.na(ue)) {
@@ -401,6 +471,11 @@ media_grp_1 <- function(impressions = NA, ue = NA, grps = NA) {
 #'
 #' @export
 media_grp_2 <- function(rating = NA, num_spots = NA, grps = NA) {
+
+  if (sum(is.na(c(rating, num_spots, grps))) != 1) {
+    stop("Leave only one parameter equal to NA.")
+  }
+
   if (is.na(grps)) {
     result <- rating * num_spots
   } else if (is.na(rating)) {
@@ -422,6 +497,11 @@ media_grp_2 <- function(rating = NA, num_spots = NA, grps = NA) {
 #'
 #' @export
 media_grp_3 <- function(reach = NA, frequency = NA, grps = NA) {
+
+  if (sum(is.na(c(reach, frequency, grps))) != 1) {
+    stop("Leave only one parameter equal to NA.")
+  }
+
   if (is.na(grps)) {
     result <- reach * frequency
   } else if (is.na(reach)) {
@@ -456,6 +536,11 @@ media_grp_3 <- function(reach = NA, frequency = NA, grps = NA) {
 #'
 #' @export
 media_reach <- function(grps = NA, frequency = NA, reach = NA) {
+
+  if (sum(is.na(c(grps, frequency, reach))) != 1) {
+    stop("Leave only one parameter equal to NA.")
+  }
+
   if (is.na(grps)) {
     result <- reach * frequency
   } else if (is.na(reach)) {
@@ -483,6 +568,11 @@ media_reach <- function(grps = NA, frequency = NA, reach = NA) {
 #'
 #' @export
 media_frequency <- function(grps = NA, frequency = NA, reach = NA) {
+
+  if (sum(is.na(c(grps, frequency, reach))) != 1) {
+    stop("Leave only one parameter equal to NA.")
+  }
+
   if (is.na(grps)) {
     result <- reach * frequency
   } else if (is.na(reach)) {
@@ -516,6 +606,11 @@ media_frequency <- function(grps = NA, frequency = NA, reach = NA) {
 #'
 #' @export
 media_vpvh <- function(persons = NA, hh = NA, vpvh = NA) {
+
+  if (sum(is.na(c(persons, hh, vpvh))) != 1) {
+    stop("Leave only one parameter equal to NA.")
+  }
+
   if (is.na(persons)) {
     result <- hh * vpvh
   } else if (is.na(hh)) {
@@ -543,6 +638,11 @@ media_vpvh <- function(persons = NA, hh = NA, vpvh = NA) {
 #'
 #' @export
 media_avg_hours <- function(duration = NA, hut_put = NA, avg_hours = NA) {
+
+  if (sum(is.na(c(duration, hut_put, avg_hours))) != 1) {
+    stop("Leave only one parameter equal to NA.")
+  }
+
   if (is.na(avg_hours)) {
     result <- duration * hut_put
   } else if (is.na(duration)) {
@@ -578,6 +678,11 @@ media_avg_hours <- function(duration = NA, hut_put = NA, avg_hours = NA) {
 #'
 #' @export
 media_cpm <- function(cost = NA, gross_aa = NA, cpm = NA) {
+
+  if (sum(is.na(c(cost, gross_aa, cpm))) != 1) {
+    stop("Leave only one parameter equal to NA.")
+  }
+
   if (is.na(cost)) {
     result <- gross_aa * cpm
   } else if (is.na(gross_aa)) {
@@ -611,6 +716,11 @@ media_cpm <- function(cost = NA, gross_aa = NA, cpm = NA) {
 #'
 #' @export
 media_cpp_1 <- function(u_cost = NA, rating = NA, cpp = NA) {
+
+  if (sum(is.na(c(u_cost, rating, cpp))) != 1) {
+    stop("Leave only one parameter equal to NA.")
+  }
+
   if (is.na(u_cost)) {
     result <- rating * cpp
   } else if (is.na(rating)) {
@@ -632,6 +742,11 @@ media_cpp_1 <- function(u_cost = NA, rating = NA, cpp = NA) {
 #'
 #' @export
 media_cpp_2 <- function(s_cost = NA, grps = NA, cpp = NA) {
+
+  if (sum(is.na(c(s_cost, grps, cpp))) != 1) {
+    stop("Leave only one parameter equal to NA.")
+  }
+
   if (is.na(s_cost)) {
     result <- grps * cpp
   } else if (is.na(grps)) {
@@ -647,7 +762,7 @@ media_cpp_2 <- function(s_cost = NA, grps = NA, cpp = NA) {
 
 #' Get Source
 #'
-#' @description The source of all formulas and definitions in this package.
+#' @description The source of all media formulas, data and definitions in this package.
 #'
 #' @export
 media_attribution <- function() {

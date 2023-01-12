@@ -7,5 +7,5 @@
 media_attribution()
 }
 \description{
-The source of all formulas and definitions in this package.
+The source of all media formulas, data and definitions in this package.
 }
