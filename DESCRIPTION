@@ -1,9 +1,9 @@
-Package: chanan.utils
-Title: Personal Utilites and Media Functions
+Package: broadcasteR
+Title: TV-related functions and utilities
 Version: 0.0.1.000
 Authors@R: 
     person("Connor", "Hanan",, "connorhanan4@gmail.com", role = c("aut", "cre"))
-Description: This package encapsulates many utility functions that I use often. 
+Description: This package encapsulates many different utility functions for analyzing TV ratings and metrics. 
     There are two major sections to this package: media, and other.
     Media functions all relate to and calculate Nielsen formulas, whereas other functions
     are a random smattering of utilities.

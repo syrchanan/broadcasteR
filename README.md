@@ -1,22 +1,23 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# chanan.utils
+# broadcasteR
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of chanan.utils is to encapsulate many utility functions that I
-use often. There are two major sections to this package: media, and
-other. Media functions all relate to and calculate Nielsen formulas,
-whereas other functions are a random smattering of utilities.
+This package encapsulates many different utility functions for analyzing
+TV ratings and metrics. There are two major sections to this package:
+media, and other. The media functions all relate to and calculate
+Nielsen formulas, whereas other functions are a random smattering of
+utilities.
 
 ## Installation
 
-You can install the development version of chanan.utils like so:
+You can install the development version of broadcasteR like so:
 
 ``` r
-devtools::install_github("syrchanan/chanan.utils")
+devtools::install_github("syrchanan/broadcasteR")
 ```
 
 ## Example
@@ -31,8 +32,7 @@ Below is an example calculation of AA rating from UE and AA.
 
 ``` r
 # Load the library
-library(chanan.utils)
+library(broadcasteR)
 
 media_aa_1(rating = NA, ue = 1000, aa = 200)
-#> [1] 0.2
 ```
