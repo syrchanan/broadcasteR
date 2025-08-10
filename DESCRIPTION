@@ -1,18 +1,21 @@
-Package: broadcasteR
-Title: TV-related functions and utilities
-Version: 0.0.1.000
+Package: connoR
+Title: Personal Helper and Utility Functions
+Version: 0.0.0.9000
 Authors@R: 
-    person("Connor", "Hanan",, "connorhanan4@gmail.com", role = c("aut", "cre"))
-Description: This package encapsulates many different utility functions for analyzing TV ratings and metrics. 
-    There are two major sections to this package: media, and other.
-    Media functions all relate to and calculate Nielsen formulas, whereas other functions
-    are a random smattering of utilities.
+    person("Connor", "Hanan", , "connorhanan4@gmail.com", role = c("aut", "cre"))
+Description: Includes various helper and utility functions from media math, plotting, table operations, advent of code, &c.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
-Depends: 
-    R (>= 2.10)
-LazyData: true
+RoxygenNote: 7.3.2
 Imports: 
-    data.table
+    dplyr,
+    ggplot2,
+    magrittr,
+    purrr,
+    tibble
+Suggests:
+    testthat (>= 3.0.0)
+Depends: 
+    R (>= 3.5)
+LazyData: true

@@ -1,9 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-<img src="man/figures/logo.png" align="right" height="150" />
-
-# broadcasteR
+# connoR
 
 <!-- badges: start -->
 
@@ -11,18 +9,16 @@
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 <!-- badges: end -->
 
-This package encapsulates many different utility functions for analyzing
-TV ratings and metrics. There are two major sections to this package:
-media, and other. The media functions all relate to and calculate
-Nielsen formulas, whereas other functions are a random smattering of
-utilities.
+This package encapsulates many different utility functions for I use for
+analyzing TV ratings and metrics, analysis, visualization, and others.
 
 ## Installation
 
-You can install the development version of broadcasteR like so:
+You can install the development version of connoR like so:
 
 ``` r
-devtools::install_github("syrchanan/broadcasteR")
+
+devtools::install_github("syrchanan/connoR")
 ```
 
 ## Example
@@ -36,8 +32,9 @@ as an NA value, and fill in all the others.
 Below is an example calculation of AA rating from UE and AA.
 
 ``` r
+
 # Load the library
-library(broadcasteR)
+library(connoR)
 
 media_aa_1(rating = NA, ue = 1000, aa = 200)
 ```

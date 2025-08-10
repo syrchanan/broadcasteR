@@ -7,19 +7,67 @@
 rgba_to_hsla(r, g, b, a = 1, pct = F)
 }
 \arguments{
-\item{r}{An integer between 0 and 255 representing the red value of the color}
+\item{r}{A numeric value representing the \strong{red} component.
+Accepted range depends on \code{pct}: if \code{pct = FALSE} (default), it's an
+integer between \code{0} and \code{255}; if \code{pct = TRUE}, it's a decimal between
+\code{0} and \code{1}.}
 
-\item{g}{An integer between 0 and 255 representing the green value of the color}
+\item{g}{A numeric value representing the \strong{green} component.
+Accepted range is the same as for \code{r}.}
 
-\item{b}{An integer between 0 and 255 representing the blue value of the color}
+\item{b}{A numeric value representing the \strong{blue} component.
+Accepted range is the same as for \code{r}.}
 
-\item{a}{A value between 0 and 1 representing the alpha of the color}
+\item{a}{A numeric value representing the \strong{alpha (opacity)} component.
+Must be a decimal between \code{0} (fully transparent) and \code{1} (fully opaque).
+Defaults to \code{1}.}
 
-\item{pct}{An indicator of whether the rgb values are percentages or scaled 0-255. Defaults to \code{FALSE}. If rgb values are input as percentages, set the parameters equal to a decimal between 0 and 1.}
+\item{pct}{A logical value. If \code{TRUE}, \code{r}, \code{g}, and \code{b} are expected to be
+input as \strong{percentages} (i.e., decimal values between \code{0} and \code{1}).
+If \code{FALSE} (default), they are expected as integers scaled \code{0-255}.}
 }
 \value{
-Returns h/s/l/a in a vector, h = 0-360 deg, s = 0.0 - 1 (0-100\%), l = 0.0 - 1 (0-100\%)
+A \strong{numeric vector} of four values:
+\describe{
+\item{\code{h}}{\strong{Hue}: A value between \code{0} and \code{360} degrees, representing the
+color's position on the color wheel. \code{0} (or \code{360}) is red, \code{120} is green,
+\code{240} is blue.}
+\item{\code{s}}{\strong{Saturation}: A value between \code{0.0} and \code{1.0} (inclusive),
+representing the intensity or purity of the color. \code{0.0} is grayscale,
+\code{1.0} is full saturation.}
+\item{\code{l}}{\strong{Lightness}: A value between \code{0.0} and \code{1.0} (inclusive),
+representing the brightness of the color. \code{0.0} is black, \code{1.0} is white,
+\code{0.5} is normal lightness.}
+\item{\code{a}}{\strong{Alpha}: The input alpha value, between \code{0} and \code{1}.}
+}
 }
 \description{
-Convert RGBa values to HSLa values by using the RGBa color model.
+Converts colors from the \strong{RGBa (Red, Green, Blue, alpha) color model}
+to the \strong{HSLa (Hue, Saturation, Lightness, alpha) color model}.
+This function takes individual red, green, blue, and alpha component values
+and returns their HSLa equivalents.
+}
+\details{
+The RGBa model defines colors by combining varying intensities of red, green,
+and blue light. The alpha channel specifies the opacity. HSLa, on the other
+hand, describes color based on its hue (the pure color), saturation (how
+vivid the color is), lightness (how bright or dark the color is), and alpha.
+HSLa is often preferred for color manipulation due to its more intuitive
+representation of color attributes.
+}
+\examples{
+# Convert a pure red color (non-percentage input)
+rgba_to_hsla(r = 255, g = 0, b = 0, a = 1)
+# Expected output: h=0, s=1, l=0.5, a=1
+
+# Convert a light blue with 50\% opacity (percentage input)
+rgba_to_hsla(r = 0.5, g = 0.75, b = 1, a = 0.5, pct = TRUE)
+# Expected output (approx): h=210, s=1, l=0.75, a=0.5
+
+# Convert a gray color (should have 0 saturation)
+rgba_to_hsla(r = 128, g = 128, b = 128)
+# Expected output: h=0, s=0, l=0.5, a=1
+}
+\seealso{
+\code{\link{hsla_to_rgba}} for the reverse conversion.
 }
