@@ -257,7 +257,7 @@ paretoset <- function(
     all(sapply(df, is.numeric))
   )
 
-  optimization_vals <- if_else(optimization == "min", 1, -1)
+  optimization_vals <- dplyr::if_else(optimization == "min", 1, -1)
   for (i in 1:ncol(df)) {
     df[, i] <- df[, i] * optimization_vals[i]
   }
