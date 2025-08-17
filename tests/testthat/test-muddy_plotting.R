@@ -11,20 +11,35 @@ is_approx_equal <- function(x, y, tolerance = 1e-6) {
 # --- Tests for rgba_to_hsla ---
 test_that("rgba_to_hsla converts pure colors correctly", {
   # Pure Red (255, 0, 0)
-  expect_equal(rgba_to_hsla(r = 255, g = 0, b = 0), c(h = 0, s = 1, l = 0.5, a = 1))
+  expect_equal(
+    rgba_to_hsla(r = 255, g = 0, b = 0),
+    c(h = 0, s = 1, l = 0.5, a = 1)
+  )
   # Pure Green (0, 255, 0)
-  expect_equal(rgba_to_hsla(r = 0, g = 255, b = 0), c(h = 120, s = 1, l = 0.5, a = 1))
+  expect_equal(
+    rgba_to_hsla(r = 0, g = 255, b = 0),
+    c(h = 120, s = 1, l = 0.5, a = 1)
+  )
   # Pure Blue (0, 0, 255)
-  expect_equal(rgba_to_hsla(r = 0, g = 0, b = 255), c(h = 240, s = 1, l = 0.5, a = 1))
+  expect_equal(
+    rgba_to_hsla(r = 0, g = 0, b = 255),
+    c(h = 240, s = 1, l = 0.5, a = 1)
+  )
 })
 
 test_that("rgba_to_hsla converts shades of gray and black/white correctly", {
   # Gray (128, 128, 128) - saturation should be 0
-  expect_equal(rgba_to_hsla(r = 128, g = 128, b = 128), c(h = 0, s = 0, l = 128/255, a = 1))
+  expect_equal(
+    rgba_to_hsla(r = 128, g = 128, b = 128),
+    c(h = 0, s = 0, l = 128 / 255, a = 1)
+  )
   # Black (0, 0, 0)
   expect_equal(rgba_to_hsla(r = 0, g = 0, b = 0), c(h = 0, s = 0, l = 0, a = 1))
   # White (255, 255, 255)
-  expect_equal(rgba_to_hsla(r = 255, g = 255, b = 255), c(h = 0, s = 0, l = 1, a = 1))
+  expect_equal(
+    rgba_to_hsla(r = 255, g = 255, b = 255),
+    c(h = 0, s = 0, l = 1, a = 1)
+  )
 })
 
 test_that("rgba_to_hsla handles percentage input correctly", {
@@ -34,27 +49,44 @@ test_that("rgba_to_hsla handles percentage input correctly", {
   expect_true(is_approx_equal(actual_output, expected_output))
 
   # Pure green with percentage input
-  expect_true(is_approx_equal(rgba_to_hsla(r = 0, g = 1, b = 0, pct = TRUE),
-                              c(h = 120, s = 1, l = 0.5, a = 1)))
+  expect_true(is_approx_equal(
+    rgba_to_hsla(r = 0, g = 1, b = 0, pct = TRUE),
+    c(h = 120, s = 1, l = 0.5, a = 1)
+  ))
 })
 
 # --- Tests for hsla_to_rgba ---
 test_that("hsla_to_rgba converts pure colors correctly", {
   # Pure Green from example
-  expect_equal(hsla_to_rgba(h = 120, s = 1, l = 0.5), c(r = 0, g = 255, b = 0, a = 1))
+  expect_equal(
+    hsla_to_rgba(h = 120, s = 1, l = 0.5),
+    c(r = 0, g = 255, b = 0, a = 1)
+  )
   # Pure Red
-  expect_equal(hsla_to_rgba(h = 0, s = 1, l = 0.5), c(r = 255, g = 0, b = 0, a = 1))
+  expect_equal(
+    hsla_to_rgba(h = 0, s = 1, l = 0.5),
+    c(r = 255, g = 0, b = 0, a = 1)
+  )
   # Pure Blue
-  expect_equal(hsla_to_rgba(h = 240, s = 1, l = 0.5), c(r = 0, g = 0, b = 255, a = 1))
+  expect_equal(
+    hsla_to_rgba(h = 240, s = 1, l = 0.5),
+    c(r = 0, g = 0, b = 255, a = 1)
+  )
 })
 
 test_that("hsla_to_rgba converts shades of gray and black/white correctly", {
   # Gray (saturation=0, lightness=0.5)
-  expect_equal(hsla_to_rgba(h = 0, s = 0, l = 0.5), c(r = 127.5, g = 127.5, b = 127.5, a = 1))
+  expect_equal(
+    hsla_to_rgba(h = 0, s = 0, l = 0.5),
+    c(r = 127.5, g = 127.5, b = 127.5, a = 1)
+  )
   # Black
   expect_equal(hsla_to_rgba(h = 0, s = 0, l = 0), c(r = 0, g = 0, b = 0, a = 1))
   # White
-  expect_equal(hsla_to_rgba(h = 0, s = 0, l = 1), c(r = 255, g = 255, b = 255, a = 1))
+  expect_equal(
+    hsla_to_rgba(h = 0, s = 0, l = 1),
+    c(r = 255, g = 255, b = 255, a = 1)
+  )
 })
 
 test_that("hsla_to_rgba handles percentage output correctly", {
@@ -66,5 +98,8 @@ test_that("hsla_to_rgba handles percentage output correctly", {
 
 test_that("hsla_to_rgba converts specific colors correctly", {
   # Blue with 25% lightness from example
-  expect_true(is_approx_equal(hsla_to_rgba(h = 240, s = 1, l = 0.25), c(r = 0, g = 0, b = 127.5, a = 1)))
+  expect_true(is_approx_equal(
+    hsla_to_rgba(h = 240, s = 1, l = 0.25),
+    c(r = 0, g = 0, b = 127.5, a = 1)
+  ))
 })

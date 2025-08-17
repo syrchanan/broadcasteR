@@ -31,7 +31,7 @@
 #' \describe{
 #'   \item{`h`}{**Hue**: A value between `0` and `360` degrees, representing the
 #'     color's position on the color wheel. `0` (or `360`) is red, `120` is green,
-#'     `240` is blue.} 
+#'     `240` is blue.}
 #'   \item{`s`}{**Saturation**: A value between `0.0` and `1.0` (inclusive),
 #'     representing the intensity or purity of the color. `0.0` is grayscale,
 #'     `1.0` is full saturation.}
@@ -85,7 +85,8 @@ rgba_to_hsla <- function(r, g, b, a = 1, pct = F) {
       h <- (g - b) / d + (ifelse(g < b, 6, 0))
     } else if (val_max == g) {
       h <- (b - r) / d + 2
-    } else { # val_max == b
+    } else {
+      # val_max == b
       h <- (r - g) / d + 4
     }
     # Convert hue to degrees (0-360)

@@ -12,20 +12,41 @@ test_that("media_ue calculates missing values correctly", {
   # Test when ue is NA
   expect_equal(media_ue(impressions = 1000, rating = 0.5, ue = NA), 2000)
   # Test error condition
-  expect_error(media_ue(impressions = 1000, rating = 0.5, ue = 2000), "Leave only one parameter equal to NA.")
-  expect_error(media_ue(impressions = NA, rating = NA, ue = NA), "Leave only one parameter equal to NA.")
+  expect_error(
+    media_ue(impressions = 1000, rating = 0.5, ue = 2000),
+    "Leave only one parameter equal to NA."
+  )
+  expect_error(
+    media_ue(impressions = NA, rating = NA, ue = NA),
+    "Leave only one parameter equal to NA."
+  )
 })
 
 test_that("media_coverage calculates missing values correctly", {
   # Test when cvg_projection is NA
-  expect_equal(media_coverage(cvg_projection = NA, cvg_ue = 2000, cvg_rating = 0.8), 1600)
+  expect_equal(
+    media_coverage(cvg_projection = NA, cvg_ue = 2000, cvg_rating = 0.8),
+    1600
+  )
   # Test when cvg_ue is NA
-  expect_equal(media_coverage(cvg_projection = 1600, cvg_ue = NA, cvg_rating = 0.8), 2000)
+  expect_equal(
+    media_coverage(cvg_projection = 1600, cvg_ue = NA, cvg_rating = 0.8),
+    2000
+  )
   # Test when cvg_rating is NA
-  expect_equal(media_coverage(cvg_projection = 1600, cvg_ue = 2000, cvg_rating = NA), 0.8)
+  expect_equal(
+    media_coverage(cvg_projection = 1600, cvg_ue = 2000, cvg_rating = NA),
+    0.8
+  )
   # Test error condition
-  expect_error(media_coverage(10, 20, 30), "Leave only one parameter equal to NA.")
-  expect_error(media_coverage(NA, NA, NA), "Leave only one parameter equal to NA.")
+  expect_error(
+    media_coverage(10, 20, 30),
+    "Leave only one parameter equal to NA."
+  )
+  expect_error(
+    media_coverage(NA, NA, NA),
+    "Leave only one parameter equal to NA."
+  )
 })
 
 test_that("media_hut_1 calculates missing values correctly", {
@@ -54,11 +75,20 @@ test_that("media_hut_2 calculates missing values correctly", {
 
 test_that("media_put_1 calculates missing values correctly", {
   # Test when persons_viewing is NA
-  expect_equal(media_put_1(persons_viewing = NA, total_person_ue = 8000, put = 0.4), 3200)
+  expect_equal(
+    media_put_1(persons_viewing = NA, total_person_ue = 8000, put = 0.4),
+    3200
+  )
   # Test when total_person_ue is NA
-  expect_equal(media_put_1(persons_viewing = 3200, total_person_ue = NA, put = 0.4), 8000)
+  expect_equal(
+    media_put_1(persons_viewing = 3200, total_person_ue = NA, put = 0.4),
+    8000
+  )
   # Test when put is NA
-  expect_equal(media_put_1(persons_viewing = 3200, total_person_ue = 8000, put = NA), 0.4)
+  expect_equal(
+    media_put_1(persons_viewing = 3200, total_person_ue = 8000, put = NA),
+    0.4
+  )
   # Test error condition
   expect_error(media_put_1(1, 2, 3), "Leave only one parameter equal to NA.")
   expect_error(media_put_1(NA, NA, NA), "Leave only one parameter equal to NA.")
@@ -66,11 +96,20 @@ test_that("media_put_1 calculates missing values correctly", {
 
 test_that("media_put_2 calculates missing values correctly", {
   # Test when demo_rating is NA
-  expect_equal(media_put_2(demo_rating = NA, demo_share = 0.2, put = 0.35), 0.07)
+  expect_equal(
+    media_put_2(demo_rating = NA, demo_share = 0.2, put = 0.35),
+    0.07
+  )
   # Test when demo_share is NA
-  expect_equal(media_put_2(demo_rating = 0.07, demo_share = NA, put = 0.35), 0.2)
+  expect_equal(
+    media_put_2(demo_rating = 0.07, demo_share = NA, put = 0.35),
+    0.2
+  )
   # Test when put is NA
-  expect_equal(media_put_2(demo_rating = 0.07, demo_share = 0.2, put = NA), 0.35)
+  expect_equal(
+    media_put_2(demo_rating = 0.07, demo_share = 0.2, put = NA),
+    0.35
+  )
   # Test error condition
   expect_error(media_put_2(1, 2, 3), "Leave only one parameter equal to NA.")
   expect_error(media_put_2(NA, NA, NA), "Leave only one parameter equal to NA.")
@@ -114,14 +153,29 @@ test_that("media_aa_2 calculates missing values correctly", {
 
 test_that("media_aa_rating_1 calculates missing values correctly", {
   # Test when aa_rating is NA
-  expect_equal(media_aa_rating_1(share = 0.25, hut = 0.5, aa_rating = NA), 0.125)
+  expect_equal(
+    media_aa_rating_1(share = 0.25, hut = 0.5, aa_rating = NA),
+    0.125
+  )
   # Test when hut is NA
-  expect_equal(media_aa_rating_1(share = 0.25, hut = NA, aa_rating = 0.125), 0.5)
+  expect_equal(
+    media_aa_rating_1(share = 0.25, hut = NA, aa_rating = 0.125),
+    0.5
+  )
   # Test when share is NA
-  expect_equal(media_aa_rating_1(share = NA, hut = 0.5, aa_rating = 0.125), 0.25)
+  expect_equal(
+    media_aa_rating_1(share = NA, hut = 0.5, aa_rating = 0.125),
+    0.25
+  )
   # Test error condition
-  expect_error(media_aa_rating_1(1, 2, 3), "Leave only one parameter equal to NA.")
-  expect_error(media_aa_rating_1(NA, NA, NA), "Leave only one parameter equal to NA.")
+  expect_error(
+    media_aa_rating_1(1, 2, 3),
+    "Leave only one parameter equal to NA."
+  )
+  expect_error(
+    media_aa_rating_1(NA, NA, NA),
+    "Leave only one parameter equal to NA."
+  )
 })
 
 test_that("media_aa_rating_2 calculates missing values correctly", {
@@ -132,8 +186,14 @@ test_that("media_aa_rating_2 calculates missing values correctly", {
   # Test when aa_rating is NA
   expect_equal(media_aa_rating_2(aa = 1000, ue = 5000, aa_rating = NA), 0.2)
   # Test error condition
-  expect_error(media_aa_rating_2(1, 2, 3), "Leave only one parameter equal to NA.")
-  expect_error(media_aa_rating_2(NA, NA, NA), "Leave only one parameter equal to NA.")
+  expect_error(
+    media_aa_rating_2(1, 2, 3),
+    "Leave only one parameter equal to NA."
+  )
+  expect_error(
+    media_aa_rating_2(NA, NA, NA),
+    "Leave only one parameter equal to NA."
+  )
 })
 
 test_that("media_aa_rating_3 calculates missing values correctly", {
@@ -144,8 +204,14 @@ test_that("media_aa_rating_3 calculates missing values correctly", {
   # Test when aa_rating is NA
   expect_equal(media_aa_rating_3(grps = 5, num_spots = 10, aa_rating = NA), 0.5)
   # Test error condition
-  expect_error(media_aa_rating_3(1, 2, 3), "Leave only one parameter equal to NA.")
-  expect_error(media_aa_rating_3(NA, NA, NA), "Leave only one parameter equal to NA.")
+  expect_error(
+    media_aa_rating_3(1, 2, 3),
+    "Leave only one parameter equal to NA."
+  )
+  expect_error(
+    media_aa_rating_3(NA, NA, NA),
+    "Leave only one parameter equal to NA."
+  )
 })
 
 test_that("media_gross_imp calculates missing values correctly", {
@@ -156,8 +222,14 @@ test_that("media_gross_imp calculates missing values correctly", {
   # Test when grps is NA
   expect_equal(media_gross_imp(gross_imp = 50000, ue = 1000, grps = NA), 50)
   # Test error condition
-  expect_error(media_gross_imp(1, 2, 3), "Leave only one parameter equal to NA.")
-  expect_error(media_gross_imp(NA, NA, NA), "Leave only one parameter equal to NA.")
+  expect_error(
+    media_gross_imp(1, 2, 3),
+    "Leave only one parameter equal to NA."
+  )
+  expect_error(
+    media_gross_imp(NA, NA, NA),
+    "Leave only one parameter equal to NA."
+  )
 })
 
 test_that("media_grp_1 calculates missing values correctly", {
@@ -216,8 +288,14 @@ test_that("media_frequency calculates missing values correctly", {
   # Test when frequency is NA
   expect_equal(media_frequency(grps = 50, frequency = NA, reach = 20), 2.5)
   # Test error condition
-  expect_error(media_frequency(1, 2, 3), "Leave only one parameter equal to NA.")
-  expect_error(media_frequency(NA, NA, NA), "Leave only one parameter equal to NA.")
+  expect_error(
+    media_frequency(1, 2, 3),
+    "Leave only one parameter equal to NA."
+  )
+  expect_error(
+    media_frequency(NA, NA, NA),
+    "Leave only one parameter equal to NA."
+  )
 })
 
 test_that("media_vpvh calculates missing values correctly", {
@@ -234,14 +312,29 @@ test_that("media_vpvh calculates missing values correctly", {
 
 test_that("media_avg_hours calculates missing values correctly", {
   # Test when avg_hours is NA
-  expect_equal(media_avg_hours(duration = 24, hut_put = 0.5, avg_hours = NA), 12)
+  expect_equal(
+    media_avg_hours(duration = 24, hut_put = 0.5, avg_hours = NA),
+    12
+  )
   # Test when duration is NA
-  expect_equal(media_avg_hours(duration = NA, hut_put = 0.5, avg_hours = 12), 24)
+  expect_equal(
+    media_avg_hours(duration = NA, hut_put = 0.5, avg_hours = 12),
+    24
+  )
   # Test when hut_put is NA
-  expect_equal(media_avg_hours(duration = 24, hut_put = NA, avg_hours = 12), 0.5)
+  expect_equal(
+    media_avg_hours(duration = 24, hut_put = NA, avg_hours = 12),
+    0.5
+  )
   # Test error condition
-  expect_error(media_avg_hours(1, 2, 3), "Leave only one parameter equal to NA.")
-  expect_error(media_avg_hours(NA, NA, NA), "Leave only one parameter equal to NA.")
+  expect_error(
+    media_avg_hours(1, 2, 3),
+    "Leave only one parameter equal to NA."
+  )
+  expect_error(
+    media_avg_hours(NA, NA, NA),
+    "Leave only one parameter equal to NA."
+  )
 })
 
 test_that("media_cpm calculates missing values correctly", {
@@ -282,5 +375,8 @@ test_that("media_cpp_2 calculates missing values correctly", {
 
 test_that("media_attribution prints the correct source", {
   # Capture the output and check if it matches the expected string
-  expect_output(media_attribution(), "https://thevab.com/storage/app/media/Toolkit/mediaterminologyformulas.pdf")
+  expect_output(
+    media_attribution(),
+    "https://thevab.com/storage/app/media/Toolkit/mediaterminologyformulas.pdf"
+  )
 })

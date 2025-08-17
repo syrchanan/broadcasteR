@@ -68,9 +68,18 @@ test_that("rlid_streak handles edge cases", {
 
 test_that("rlid_streak handles empty vectors", {
   empty_vec <- numeric(0)
-  expect_error(rlid_streak(empty_vec, return = "all"), "vec must have length > 0")
-  expect_error(rlid_streak(empty_vec, return = "rlid"), "vec must have length > 0")
-  expect_error(rlid_streak(empty_vec, return = "streak"), "vec must have length > 0")
+  expect_error(
+    rlid_streak(empty_vec, return = "all"),
+    "vec must have length > 0"
+  )
+  expect_error(
+    rlid_streak(empty_vec, return = "rlid"),
+    "vec must have length > 0"
+  )
+  expect_error(
+    rlid_streak(empty_vec, return = "streak"),
+    "vec must have length > 0"
+  )
 })
 
 test_that("invalid return value throws an error", {

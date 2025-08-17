@@ -76,29 +76,28 @@
 #' }
 #' @export
 rlid_streak <- function(vec, return = c("all", "streak", "rlid"), index_0 = F) {
-  
   # arg matching
   return <- match.arg(return)
   stopifnot(
     "vec must have length > 0" = length(vec) != 0
   )
-  
+
   # Get run-length encoding information
   rle_info <- rle(vec)
   len <- rle_info$lengths
-  
+
   # Generate rlid vector
   rlid <- rep(seq_along(len), len)
-  
+
   # Generate streak vector
   streak <- unlist(sapply(len, FUN = seq, from = 1))
   streak <- as.vector(streak)
-  
+
   # Adjust rlid if index_0 is TRUE
   if (index_0) {
     rlid <- rlid - 1
   }
-  
+
   # Return the requested output
   switch(
     return,
